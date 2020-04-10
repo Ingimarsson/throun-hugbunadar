@@ -1,5 +1,7 @@
 package is.hi.flugleit;
 
+import javax.json.*;
+
 public class Passenger {
     private String name;
     private int ssn;
@@ -26,4 +28,19 @@ public class Passenger {
     public int getPhoneNumber(){return phoneNumber;}
     public void setPhoneNumber(int val){phoneNumber=val;}
     
+    /*
+    Returns a json object for the web API.
+    @return JsonObjectBuilder with the flight data.
+    */
+    public JsonObjectBuilder createJson() {
+        JsonObjectBuilder result = Json.createObjectBuilder();
+
+        result.add("name", this.getName());
+        result.add("ssn", this.getSsn());
+        result.add("gender", this.getGender());
+        result.add("email", this.getEmail());
+        result.add("phoneNumber", this.getPhoneNumber());
+    
+        return result;
+    }
 }
