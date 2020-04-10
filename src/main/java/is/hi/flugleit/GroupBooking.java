@@ -1,5 +1,7 @@
 package is.hi.flugleit;
 
+import javax.json.*;
+
 public class GroupBooking {
   private String groupBookingNumber;
   private Booking[] bookings;
@@ -23,5 +25,18 @@ public class GroupBooking {
     for(int i=0;i<N;i++)
       booking[i]=val[i];
   }
+  
+    /*
+    Returns a json object for the web API.
+    @return JsonObjectBuilder with the flight data.
+    */
+    public JsonObjectBuilder createJson() {
+        JsonObjectBuilder result = Json.createObjectBuilder();
+
+        result.add("groupBookingNumber", this.getGroupBookingNumber());
+        result.add("bookings", this.getBookings().getJson());
+    
+        return result;
+    }
 
 }
