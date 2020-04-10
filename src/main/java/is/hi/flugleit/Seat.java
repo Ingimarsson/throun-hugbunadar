@@ -28,6 +28,7 @@ public class Seat {
 
         result.add("seatNumber", this.getSeatNumber());
         result.add("price", this.getPrice());
+        result.add("availability", this.getAvailability());
     
         return result;
     }
