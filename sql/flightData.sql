@@ -1,0 +1,18 @@
+INSERT INTO flight VALUES
+  ('NY326', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 10:15:00', '2020-04-16 11:15:00', 23450, 3200, 60);
+INSERT INTO flight VALUES
+  ('NY328', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 13:45:00', '2020-04-16 14:40:00', 24450, 3200, 55);
+INSERT INTO flight VALUES
+  ('NY330', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 17:15:00', '2020-04-16 18:20:00', 22290, 3200, 65);
+INSERT INTO flight VALUES
+  ('NY166', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 16:00:00', '2020-04-16 16:45:00', 15865, 3200, 45);
+INSERT INTO flight VALUES
+  ('NY164', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 09:50:00', '2020-04-16 10:30:00', 19570, 3200, 40);
+INSERT INTO flight VALUES
+  ('NY168', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 12:15:00', '2020-04-16 13:05:00', 17900, 3200, 50);
+INSERT INTO flight VALUES
+  ('FEI761', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 7:15:00', '2020-04-16 7:40:00', 19100, 3000, 25);
+INSERT INTO flight VALUES
+  ('FEI763', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 10:20:00', '2020-04-16 10:50:00', 22200, 3000, 30);
+INSERT INTO flight VALUES
+  ('FEI765', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 15:35:00', '2020-04-16 16:10:00', 20350, 3000, 35);
