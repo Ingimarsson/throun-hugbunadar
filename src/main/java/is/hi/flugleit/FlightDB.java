@@ -29,7 +29,7 @@ public class FlightDB extends Database {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                flights.add(new Flight(
+                Flight f = new Flight(
                     rs.getString(1), 
                     rs.getString(2),
                     rs.getString(3),
@@ -37,13 +37,26 @@ public class FlightDB extends Database {
                     rs.getString(5),
                     rs.getString(6),
                     rs.getInt(7)
-                ));
+                );
+
+                List<Seat> seats = new ArrayList<Seat>();
+
+                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND available=false");
+                pstmt.setString(1, f.getFlightNumber());
+                ResultSet srs = pstmt.executeQuery();
+
+                while (srs.next()) {
+                    Seat s = new Seat(srs.getString(1), srs.getInt(3));
+                    seats.add(s);
+                }
+
+                f.setSeats(seats.toArray(new Seat[seats.size()]));
+                flights.add(f);
             }
         }
         catch (java.sql.SQLException e) {
             System.out.println(e);
         }
-
        
         return flights.toArray(new Flight[flights.size()]);
     }
@@ -66,7 +79,7 @@ public class FlightDB extends Database {
     */
     public void createFlight(Flight f) {
         try {
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO flights(flight_number, airline, dest_to, dest_from, departure_time, arrival_time, price, luggage_price, duration) VALUES(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO flight(flight_number, airline, dest_to, dest_from, departure_time, arrival_time, price, luggage_price, duration) VALUES(?,?,?,?,?,?,?,?,?)");
 
             pstmt.setString(1, f.getFlightNumber());
             pstmt.setString(2, f.getAirline());
@@ -97,6 +110,16 @@ public class FlightDB extends Database {
     @param flightNumber the number of the flight which the seat belongs to
     */
     private void createSeat(Seat s, String flightNumber) {
-        
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO seat(num, available, price, flight_number) VALUES(?,?,?,?);");
+
+            pstmt.setString(1, s.getSeatNumber());
+            pstmt.setBoolean(2, s.getAvailability());
+            pstmt.setInt(3, s.getPrice());
+            pstmt.setString(4, flightNumber);
+        }
+        catch (java.sql.SQLException e) {
+
+        }
     }
 }

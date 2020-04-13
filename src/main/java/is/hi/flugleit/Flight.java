@@ -46,12 +46,7 @@ public class Flight {
     public int getAvailableSeats(){return availableSeats;}
     public void setAvailableSeats(int val){availableSeats=val;}
     public Seat[] getSeats(){return seats;}
-    public void setSeats(Seat[] val){
-        int N=val.length;
-        seats =new Seat[N];
-        for(int i=0;i<N;i++)
-            seats[i]=val[i];
-    }
+    public void setSeats(Seat[] val){seats=val;}
     public int getLuggagePrice(){return luggagePrice;}
     public void setLuggagePrice(int val){luggagePrice=val;}
    
@@ -72,6 +67,11 @@ public class Flight {
     */
     public JsonObjectBuilder createJson() {
         JsonObjectBuilder result = Json.createObjectBuilder();
+        JsonArrayBuilder seatsJson = Json.createArrayBuilder();
+
+        for (Seat s : this.getSeats()) {
+            seatsJson.add(s.createJson());
+        }
 
         result.add("flightNumber", this.getFlightNumber());
         result.add("airline", this.getAirline());
@@ -80,8 +80,8 @@ public class Flight {
         result.add("departureTime", this.getDepartureTime());
         result.add("arrivalTime", this.getArrivalTime());
         result.add("price", this.getPrice());
-        result.add("availableSeats", this.getAvailableSeats());
         result.add("luggagePrice", this.getLuggagePrice());
+        result.add("seats", seatsJson);
     
         return result;
     }
