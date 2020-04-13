@@ -30,4 +30,24 @@ public class FlightController {
 
         return results.build().toString();
     }
+
+    @RequestMapping("/flight")
+    public String getFlight(@RequestParam String flightNumber) {
+        //Þarf að sækja flight úr flightDB
+        
+        results.add(Json.createObjectBuilder()
+            .add("airline", flight.getAirline())
+            .add("destTo", flight.getDestTo())
+            .add("destFrom", flight.getDestFrom())
+            .add("departureTime", flight.getDepartureTime())
+            .add("arrivalTime", flight.getArrivalTime())
+            .add("price", flight.getPrice())
+        );
+        return results.build().toString();
+    }
+
+    @PostMapping("/flight")
+    public String makeFlight(@RequestBody Flight flight){
+        return "OK";
+    }
 }
