@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @EnableAutoConfiguration
 public class BookingController {
-    private FlightDB flightDB;
+    private BookingDB bookingDB;
     private Flight[] flights;
 
     public BookingController(BookingDB bookingDB) {
@@ -18,23 +18,23 @@ public class BookingController {
     }
 
     @RequestMapping("/booking")
-   public String getBooking(@RequestParam String bookingNumber) {
-      //Það þarf að bæta við að sækja booking úr bookingDB
-      results.add(Json.createObjectBuilder()
-         .add("passenger", Booking.getPassenger())
-         .add("seat", Booking.getSeat())
-         .add("luggage", Booking.getLuggage())
-         .add("paid", Booking.getPaid())
-      );
-      
-      return results.build().toString();
-   }
+    public String getBooking(@RequestParam String bookingNumber) {
+        //Það þarf að bæta við að sækja booking úr bookingDB
+        /*
+        results.add(Json.createObjectBuilder()
+           .add("passenger", Booking.getPassenger())
+           .add("seat", Booking.getSeat())
+           .add("luggage", Booking.getLuggage())
+           .add("paid", Booking.getPaid())
+        );
+        return results.build().toString();
+        */
+        return "ok";
+    }
 
    
-   @PostMapping("/booking")
-   public String makeBooking(@RequestBody Booking booking){
-      
-   }
-
-
+    @PostMapping("/booking")
+    public String makeBooking(@RequestBody Booking booking){
+        return "ok";      
+    }
 }

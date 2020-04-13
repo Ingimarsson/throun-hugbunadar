@@ -25,6 +25,11 @@ public class App {
         return new FlightDB("jdbc:sqlite:./database.sqlite3");
     }
 
+    @Bean
+    public BookingDB bookingDB() {
+        return new BookingDB("jdbc:sqlite:./database.sqlite3");
+    }
+
     public static void main( String[] args ) {
         SpringApplication.run(App.class, args);
     }

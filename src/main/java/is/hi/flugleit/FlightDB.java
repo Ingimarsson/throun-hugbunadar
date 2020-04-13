@@ -62,14 +62,52 @@ public class FlightDB extends Database {
     }
 
     /*
-    Returns the details of the specified flight.
+    Returns the flight with the given flight number
 
-    @param flightNumber the flight number of the flight
-    @return a Flight object for the specified flight
+    @param flightNumber the number of the flight
+    @return a Flight object
     */
     public Flight getFlight(String flightNumber) {
+        Flight f = new Flight("","","","","","",0);
 
-      return null;
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM flight WHERE flight_number=?");
+
+            pstmt.setString(1, flightNumber);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                f = new Flight(
+                    rs.getString(1), 
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getInt(7)
+                );
+
+                List<Seat> seats = new ArrayList<Seat>();
+
+                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND available=false");
+                pstmt.setString(1, f.getFlightNumber());
+                ResultSet srs = pstmt.executeQuery();
+
+                while (srs.next()) {
+                    Seat s = new Seat(srs.getString(1), srs.getInt(3));
+                    seats.add(s);
+                }
+
+                f.setSeats(seats.toArray(new Seat[seats.size()]));
+            }
+
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e);
+        }
+
+        return f;
     }
 
     /*
