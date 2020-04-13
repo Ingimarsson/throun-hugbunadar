@@ -1,18 +1,227 @@
-INSERT INTO flight VALUES
-  ('NY326', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 10:15:00', '2020-04-16 11:15:00', 23450, 3200, 60);
-INSERT INTO flight VALUES
-  ('NY328', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 13:45:00', '2020-04-16 14:40:00', 24450, 3200, 55);
-INSERT INTO flight VALUES
-  ('NY330', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 17:15:00', '2020-04-16 18:20:00', 22290, 3200, 65);
-INSERT INTO flight VALUES
-  ('NY166', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 16:00:00', '2020-04-16 16:45:00', 15865, 3200, 45);
-INSERT INTO flight VALUES
-  ('NY164', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 09:50:00', '2020-04-16 10:30:00', 19570, 3200, 40);
-INSERT INTO flight VALUES
-  ('NY168', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 12:15:00', '2020-04-16 13:05:00', 17900, 3200, 50);
-INSERT INTO flight VALUES
-  ('FEI761', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 7:15:00', '2020-04-16 7:40:00', 19100, 3000, 25);
-INSERT INTO flight VALUES
-  ('FEI763', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 10:20:00', '2020-04-16 10:50:00', 22200, 3000, 30);
-INSERT INTO flight VALUES
-  ('FEI765', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 15:35:00', '2020-04-16 16:10:00', 20350, 3000, 35);
+-- 16-04 frá RVK
+
+INSERT INTO flight VALUES (
+'NY326', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 10:15:00', '2020-04-16 11:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY328', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 13:45:00', '2020-04-16 14:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY330', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-16 17:15:00', '2020-04-16 18:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY166', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 16:00:00', '2020-04-16 16:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY164', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 09:50:00', '2020-04-16 10:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'NY168', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-16 12:15:00', '2020-04-16 13:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'FEI761', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 7:15:00', '2020-04-16 7:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI763', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 10:20:00', '2020-04-16 10:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI765', 'Eagle Air', 'VEY', 'RKV', '2020-04-16 15:35:00', '2020-04-16 16:10:00', 20350, 3000, 35
+);
+
+-- 17-04 frá RVK
+
+INSERT INTO flight VALUES (
+'NY316', 'Air Iceland Connect', 'EGS','RKV', '2020-04-17 10:15:00', '2020-04-17 11:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY318', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-17 13:45:00', '2020-04-17 14:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY320', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-17 17:15:00', '2020-04-17 18:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY178', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-17 12:15:00', '2020-04-17 13:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'NY176', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-17 17:00:00', '2020-04-17 17:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY174', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-17 09:50:00', '2020-04-17 10:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'FEI751', 'Eagle Air', 'VEY', 'RKV', '2020-04-17 7:15:00', '2020-04-17 7:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI753', 'Eagle Air', 'VEY', 'RKV', '2020-04-17 10:20:00', '2020-04-17 10:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI755', 'Eagle Air', 'VEY', 'RKV', '2020-04-17 15:35:00', '2020-04-17 16:10:00', 20350, 3000, 35
+);
+
+-- 18-04 frá RVK
+
+INSERT INTO flight VALUES (
+'NY306', 'Air Iceland Connect', 'EGS','RKV', '2020-04-18 10:15:00', '2020-04-18 11:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY308', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-18 13:45:00', '2020-04-18 14:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY310', 'Air Iceland Connect', 'EGS', 'RKV', '2020-04-18 17:15:00', '2020-04-18 18:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY188', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-18 12:15:00', '2020-04-18 13:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'NY186', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-18 17:00:00', '2020-04-18 17:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY184', 'Air Iceland Connect', 'AEY', 'RKV', '2020-04-18 09:50:00', '2020-04-18 10:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'FEI741', 'Eagle Air', 'VEY', 'RKV', '2020-04-18 7:15:00', '2020-04-18 7:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI743', 'Eagle Air', 'VEY', 'RKV', '2020-04-18 10:20:00', '2020-04-18 10:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI745', 'Eagle Air', 'VEY', 'RKV', '2020-04-18 15:35:00', '2020-04-18 16:10:00', 20350, 3000, 35
+);
+
+-- 16-04 til RVK
+
+INSERT INTO flight VALUES (
+'NY327', 'Air Iceland Connect', 'RKV', 'EGS','2020-04-16 08:15:00', '2020-04-16 09:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY329', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-16 11:45:00', '2020-04-16 12:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY331', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-16 15:15:00', '2020-04-16 16:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY169', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-16 10:15:00', '2020-04-16 11:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'NY167', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-16 15:00:00', '2020-04-16 15:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY165', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-16 07:50:00', '2020-04-16 08:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'FEI762', 'Eagle Air', 'RKV', 'VEY', '2020-04-16 9:15:00', '2020-04-16 9:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI764', 'Eagle Air', 'RKV', 'VEY', '2020-04-16 12:20:00', '2020-04-16 12:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI766', 'Eagle Air', 'RKV', 'VEY', '2020-04-16 17:35:00', '2020-04-16 18:10:00', 20350, 3000, 35
+);
+
+-- 17-04 til RVK
+
+INSERT INTO flight VALUES (
+'NY317', 'Air Iceland Connect', 'RKV', 'EGS','2020-04-17 08:15:00', '2020-04-17 09:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY319', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-17 11:45:00', '2020-04-17 12:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY321', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-17 15:15:00', '2020-04-17 16:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY179', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-17 10:15:00', '2020-04-17 11:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'NY177', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-17 15:00:00', '2020-04-17 15:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY175', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-17 07:50:00', '2020-04-17 08:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'FEI752', 'Eagle Air', 'RKV', 'VEY', '2020-04-17 9:15:00', '2020-04-17 9:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI754', 'Eagle Air', 'RKV', 'VEY', '2020-04-17 12:20:00', '2020-04-17 12:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI756', 'Eagle Air', 'RKV', 'VEY', '2020-04-17 17:35:00', '2020-04-17 18:10:00', 20350, 3000, 35
+);
+
+-- 18-04 til RVK
+
+INSERT INTO flight VALUES (
+'NY307', 'Air Iceland Connect', 'RKV', 'EGS','2020-04-18 08:15:00', '2020-04-18 09:15:00', 23450, 3200, 60
+);
+
+INSERT INTO flight VALUES (
+'NY309', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-18 11:45:00', '2020-04-18 12:40:00', 24450, 3200, 55
+);
+
+INSERT INTO flight VALUES (
+'NY311', 'Air Iceland Connect', 'RKV', 'EGS', '2020-04-18 15:15:00', '2020-04-18 16:20:00', 22290, 3200, 65
+);
+
+INSERT INTO flight VALUES (
+'NY189', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-18 10:15:00', '2020-04-18 11:05:00', 17900, 3200, 50
+);
+
+INSERT INTO flight VALUES (
+'NY187', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-18 15:00:00', '2020-04-18 15:45:00', 15865, 3200, 45
+);
+
+INSERT INTO flight VALUES (
+'NY185', 'Air Iceland Connect', 'RKV', 'AEY', '2020-04-18 07:50:00', '2020-04-18 08:30:00', 19570, 3200, 40
+);
+
+INSERT INTO flight VALUES (
+'FEI742', 'Eagle Air', 'RKV', 'VEY', '2020-04-18 9:15:00', '2020-04-18 9:40:00', 19100, 3000, 25
+);
+
+INSERT INTO flight VALUES (
+'FEI744', 'Eagle Air', 'RKV', 'VEY', '2020-04-18 12:20:00', '2020-04-18 12:50:00', 22200, 3000, 30
+);
+
+INSERT INTO flight VALUES (
+'FEI746', 'Eagle Air', 'RKV', 'VEY', '2020-04-18 17:35:00', '2020-04-18 18:10:00', 20350, 3000, 35
+);
