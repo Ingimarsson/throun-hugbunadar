@@ -1,5 +1,5 @@
 CREATE TABLE flight (
-    flight_number INTEGER PRIMARY_KEY,
+    flight_number TEXT PRIMARY_KEY,
     airline TEXT,
     dest_to TEXT,
     dest_from TEXT, 
@@ -11,10 +11,10 @@ CREATE TABLE flight (
 );
 
 CREATE TABLE seat (
-    id INTEGER PRIMARY_KEY,
+    id TEXT PRIMARY_KEY,
     availability BOOLEAN,
     price INTEGER,
-    flight_number INTEGER,
+    flight_number TEXT,
     FOREIGN KEY(flight_number) REFERENCES flight(flight_number)
 );
 
