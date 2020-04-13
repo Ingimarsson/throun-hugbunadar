@@ -1,4 +1,5 @@
 package is.hi.flugleit;
+
 import java.util.*;
 
 import javax.json.*;
@@ -19,22 +20,13 @@ public class BookingController {
 
     @RequestMapping("/booking")
     public String getBooking(@RequestParam String bookingNumber) {
-        //Það þarf að bæta við að sækja booking úr bookingDB
-        /*
-        results.add(Json.createObjectBuilder()
-           .add("passenger", Booking.getPassenger())
-           .add("seat", Booking.getSeat())
-           .add("luggage", Booking.getLuggage())
-           .add("paid", Booking.getPaid())
-        );
-        return results.build().toString();
-        */
-        return "ok";
-    }
+        GroupBooking g = this.bookingDB.getGroupBooking(bookingNumber);
 
+        return g.createJson().build().toString();
+    }
    
-    @PostMapping("/booking")
-    public String makeBooking(@RequestBody Booking booking){
-        return "ok";      
+    @RequestMapping(method=RequestMethod.POST, value="/booking")
+    public String makeBooking(@RequestBody String raw){
+        return "json = "+raw;
     }
 }

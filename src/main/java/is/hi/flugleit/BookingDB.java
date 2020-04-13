@@ -15,7 +15,41 @@ public class BookingDB extends Database {
     @return a GroupBooking object for the given booking.
     */
     public GroupBooking getGroupBooking(String groupBookingNumber) {
-        return null;
+        List<Booking> bookings = new ArrayList<Booking>();
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM booking WHERE group_number=?;");
+
+            pstmt.setString(1, groupBookingNumber);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                pstmt = conn.prepareStatement("SELECT * FROM passenger WHERE ssn=?;");
+                pstmt.setInt(1, rs.getInt(7));
+      
+                ResultSet prs = pstmt.executeQuery();
+                prs.next();
+                
+                Passenger p = new Passenger(prs.getString(2), prs.getInt(1), prs.getString(3), prs.getString(4), prs.getInt(5));
+
+                Booking b = new Booking(rs.getString(6), rs.getString(8), p);
+
+                b.setBookingNumber(rs.getString(1));
+                b.setLuggage(rs.getBoolean(3));
+                b.setPaid(rs.getBoolean(4));
+                b.setRefunded(rs.getBoolean(5));
+
+                bookings.add(b);
+            }
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e);
+        }
+
+        GroupBooking g = new GroupBooking(groupBookingNumber, bookings.toArray(new Booking[bookings.size()]));
+
+        return g;
     }
 
     /*
