@@ -47,7 +47,7 @@ class FlightDetails extends Component {
         </Segment>
         { this.state.result && <div>
         <Header dividing>Flugupplýsingar</Header>
-        <FlightSegment {...this.state.result} />
+        <FlightSegment {...this.state.result} bookable={false}/>
         </div> }
       </div>
     );

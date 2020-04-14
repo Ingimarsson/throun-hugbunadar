@@ -24,7 +24,9 @@ class FlightSegment extends Component {
             <Grid.Column width={4} textAlign='right'><b>{this.props.seats.length} sæti laus</b></Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column width={16} textAlign='right'><Button>Bóka</Button></Grid.Column>
+            <Grid.Column width={16} textAlign='right'>
+              { this.props.bookable && <Button onClick={() => this.props.bookFunction(this.props.flightNumber)}>Bóka</Button> }
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Segment>
