@@ -1,6 +1,7 @@
 package is.hi.flugleit;
 
 import javax.json.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Booking {
     private String bookingNumber;
@@ -34,6 +35,13 @@ public class Booking {
     public void setFlightNumber(String val) {flightNumber=val;}
     public String getSeatNumber() {return seatNumber;}
     public void setSeatNumber(String val) {seatNumber=val;}
+
+    /*
+    Generates a random alphanumeric booking number of length 6.
+    */
+    public void generateBookingNumber() {
+        this.bookingNumber = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
+    }
 
     /*
     Returns a json object for the web API.

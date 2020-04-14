@@ -58,6 +58,16 @@ public class BookingDB extends Database {
     @param g a GroupBooking object 
     */
     public void createGroupBooking(GroupBooking g) {
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO group_booking VALUES(?);");
+            pstmt.setString(1, g.getGroupBookingNumber());
+
+            pstmt.executeUpdate();
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e);
+        }
+ 
         for (Booking b : g.getBookings()) {
             this.createBooking(b, g.getGroupBookingNumber());
         }
@@ -72,6 +82,23 @@ public class BookingDB extends Database {
     */
     private void createBooking(Booking b, String groupBookingNumber) {
         this.createPassenger(b.getPassenger());
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO booking VALUES(?,?,?,?,?,?,?,?);");
+            pstmt.setString(1, b.getBookingNumber());
+            pstmt.setString(2, groupBookingNumber);
+            pstmt.setBoolean(3, b.getLuggage());
+            pstmt.setBoolean(4, b.getPaid());
+            pstmt.setBoolean(5, b.getRefunded());
+            pstmt.setString(6, b.getFlightNumber());
+            pstmt.setInt(7, b.getPassenger().getSsn());
+            pstmt.setString(8, b.getSeatNumber());
+
+            pstmt.executeUpdate();
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e);
+        }
     }
 
     /*

@@ -41,13 +41,15 @@ public class BookingController {
 
             Booking booking = new Booking(b.getString("flightNumber"), b.getString("seatNumber"), p);
             booking.setLuggage(b.getBoolean("luggage"));
+            booking.generateBookingNumber();
             bookings.add(booking);
         }
 
         GroupBooking g = new GroupBooking("", bookings.toArray(new Booking[bookings.size()]));
+        g.generateGroupBookingNumber();
 
         this.bookingDB.createGroupBooking(g);
 
-        return "ok";
+        return g.getGroupBookingNumber();
     }
 }

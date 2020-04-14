@@ -1,6 +1,7 @@
 package is.hi.flugleit;
 
 import javax.json.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class GroupBooking {
     private String groupBookingNumber;
@@ -15,6 +16,13 @@ public class GroupBooking {
     public void setGroupBookingNumber(String val){groupBookingNumber=val;}
     public Booking[] getBookings(){return bookings;}
     public void setBookings(Booking[] val){bookings=val; }
+
+    /*
+    Generates a random alphanumeric group booking number of length 4.
+    */
+    public void generateGroupBookingNumber() {
+        this.groupBookingNumber = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
+    }
   
     /*
     Returns a json object for the web API.
