@@ -9,9 +9,9 @@ public class Booking {
     private Passenger passenger;
     private String flightNumber;
     private String seatNumber;
-    private boolean luggage;
-    private boolean paid;
-    private boolean refunded;
+    private boolean luggage = false;
+    private boolean paid = true;
+    private boolean refunded = true;
     
     public Booking(String flightNumber, String seatNumber, Passenger passenger){
         this.flightNumber=flightNumber;
