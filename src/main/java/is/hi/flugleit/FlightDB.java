@@ -41,7 +41,7 @@ public class FlightDB extends Database {
 
                 List<Seat> seats = new ArrayList<Seat>();
 
-                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND available=false");
+                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND availability=true");
                 pstmt.setString(1, f.getFlightNumber());
                 ResultSet srs = pstmt.executeQuery();
 
@@ -90,7 +90,7 @@ public class FlightDB extends Database {
 
                 List<Seat> seats = new ArrayList<Seat>();
 
-                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND available=false");
+                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND availability=true");
                 pstmt.setString(1, f.getFlightNumber());
                 ResultSet srs = pstmt.executeQuery();
 

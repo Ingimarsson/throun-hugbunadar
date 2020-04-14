@@ -19,7 +19,7 @@ public class FlightController {
     }
    
     @RequestMapping("/search")
-    public String getSearch(@RequestParam String date, @RequestParam String to, @RequestParam String from, @RequestParam String sort) {
+    public String getSearch(@RequestParam String date, @RequestParam String to, @RequestParam String from) {
         Flight[] flights = this.flightDB.getFlights(date, to, from);
 
         JsonArrayBuilder results = Json.createArrayBuilder();
