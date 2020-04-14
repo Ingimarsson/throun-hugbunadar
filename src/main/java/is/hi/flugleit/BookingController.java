@@ -3,6 +3,7 @@ package is.hi.flugleit;
 import java.util.*;
 
 import javax.json.*;
+import java.io.StringReader;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
@@ -27,6 +28,26 @@ public class BookingController {
    
     @RequestMapping(method=RequestMethod.POST, value="/booking")
     public String makeBooking(@RequestBody String raw){
-        return "json = "+raw;
+        JsonReader jsonReader = Json.createReader(new StringReader(raw));
+        JsonArray bookingsJson = jsonReader.readArray();
+        jsonReader.close();
+
+        List<Booking> bookings = new ArrayList<Booking>();
+
+        for (int i=0; i < bookingsJson.size(); i++) {
+            JsonObject b = bookingsJson.getJsonObject(i);
+
+            Passenger p = new Passenger(b.getString("name"), b.getInt("ssn"), b.getString("gender"), b.getString("email"), b.getInt("phoneNumber"));
+
+            Booking booking = new Booking(b.getString("flightNumber"), b.getString("seatNumber"), p);
+            booking.setLuggage(b.getBoolean("luggage"));
+            bookings.add(booking);
+        }
+
+        GroupBooking g = new GroupBooking("", bookings.toArray(new Booking[bookings.size()]));
+
+        this.bookingDB.createGroupBooking(g);
+
+        return "ok";
     }
 }

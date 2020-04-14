@@ -71,7 +71,7 @@ public class BookingDB extends Database {
     @return the id of the inserted row in the Booking table
     */
     private void createBooking(Booking b, String groupBookingNumber) {
-        this.createPassenger(b.getPassenger(), b.getBookingNumber());
+        this.createPassenger(b.getPassenger());
     }
 
     /*
@@ -80,7 +80,19 @@ public class BookingDB extends Database {
     @param p a Passenger object.
     @param bookingNumber the number of the booking which this passenger belongs to.
     */
-    private void createPassenger(Passenger p, String bookingNumber) {
-        
+    private void createPassenger(Passenger p) {
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO passenger VALUES(?,?,?,?,?);");
+            pstmt.setInt(1, p.getSsn());
+            pstmt.setString(2, p.getName());
+            pstmt.setString(3, p.getGender());
+            pstmt.setString(4, p.getEmail());
+            pstmt.setInt(5, p.getPhoneNumber());
+
+            pstmt.executeUpdate();
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e);
+        }
     }
 }
