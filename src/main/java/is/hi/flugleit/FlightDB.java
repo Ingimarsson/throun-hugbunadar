@@ -41,8 +41,9 @@ public class FlightDB extends Database {
 
                 List<Seat> seats = new ArrayList<Seat>();
 
-                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND availability=true");
+                pstmt = conn.prepareStatement("select * from seat where flight_number=? and id not in (select seat_id from booking where flight_number=?);");
                 pstmt.setString(1, f.getFlightNumber());
+                pstmt.setString(2, f.getFlightNumber());
                 ResultSet srs = pstmt.executeQuery();
 
                 while (srs.next()) {
@@ -90,8 +91,9 @@ public class FlightDB extends Database {
 
                 List<Seat> seats = new ArrayList<Seat>();
 
-                pstmt = conn.prepareStatement("SELECT * FROM seat WHERE flight_number=? AND availability=true");
+                pstmt = conn.prepareStatement("select * from seat where flight_number=? and id not in (select seat_id from booking where flight_number=?);");
                 pstmt.setString(1, f.getFlightNumber());
+                pstmt.setString(2, f.getFlightNumber());
                 ResultSet srs = pstmt.executeQuery();
 
                 while (srs.next()) {

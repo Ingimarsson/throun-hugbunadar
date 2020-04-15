@@ -23,14 +23,10 @@ class Passenger extends Component {
   handleToggle = (e, { name, checked }) => this.setState({ [name]: checked }, () => this.update())
 
   update() {
-    this.props.update(this.props.passenger, this.state);
-  }
-
-  componentDidMount() {
-    var that=this;
-    axios.get("/api/flight?flightNumber="+this.props.flightNumber).then(function(response) {
-      that.setState({flight: response.data});
-    });
+    var booking = this.state;
+    booking.ssn = parseInt(booking.ssn);
+    booking.phoneNumber = parseInt(booking.phoneNumber);
+    this.props.update(this.props.passenger, booking);
   }
 
   render() {
@@ -67,11 +63,11 @@ class Passenger extends Component {
                 onChange={this.handleChange}
               />
               <Form.Field
-                name='phone'
+                name='phoneNumber'
                 control={Input}
                 label='Símanúmer'
                 placeholder='Símanúmer'
-                value={this.state.phone}
+                value={this.state.phoneNumber}
                 onChange={this.handleChange}
                 type='number'
               />
@@ -202,9 +198,18 @@ class FlightBooking extends Component {
         seats={this.state.seatOptions}
         passenger={i}
         update={this.updateBooking.bind(this)}
+        flightNumber={this.props.flightNumber}
       />);
     }
     return components;
+  }
+
+  submitBooking() {
+    console.log(this.state.booking);
+    axios.post('/api/booking', this.state.booking).then(function(response) {
+      console.log(response.data);
+      alert("Bókunarnúmerið þitt er " + response.data);
+    });
   }
 
   render() {
@@ -219,7 +224,7 @@ class FlightBooking extends Component {
               <Header>Bókunaryfirlit</Header>
               { this.state.flight && this.calculatePrice() }
             </Segment>
-            <Button primary fluid >Staðfesta</Button>
+            <Button primary fluid onClick={() => this.submitBooking()} >Staðfesta</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>

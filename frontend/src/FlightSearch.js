@@ -138,7 +138,7 @@ class FlightSearch extends Component {
               </Grid.Row>
             </Grid>
             <Divider/>
-            {this.state.results.map(function(x) { return <FlightSegment bookFunction={this.setBookingMode.bind(this)} {...x} bookable={true} />}, this)}
+            {this.state.results.map(function(x) { return <FlightSegment bookFunction={this.setBookingMode.bind(this)} {...x} bookable={this.state.passengers <= x.seats.length} />}, this)}
           </div> 
         }
       </div>
